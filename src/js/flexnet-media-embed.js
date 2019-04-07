@@ -18,7 +18,7 @@ tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
         text:false,
         icon: true,
         image:icon_url,
-        tooltip: 'Embed Tweet, FB, YouTube, Soundcloud, Infogram',
+        tooltip: 'Embed Tweet, FB, YouTube, Vimeo, Soundcloud, Infogram',
 
         onclick: function () {
 
