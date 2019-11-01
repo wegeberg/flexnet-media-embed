@@ -8,7 +8,7 @@
     For full example see: https://www.flexnet.dk/github/flexnet-media-embed/example/
 */
 tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
-    var icon_url='../src/images/fl.png';
+    var icon_url='/images/fl.png';
 
     editor.on('init', function (args) {
         editor_id = args.target.id;
@@ -41,13 +41,14 @@ tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
                     if(e.data.url.indexOf("facebook") > 0) {
                         getFacebook(e.data.url);
                     } else {
-                        const url = "../src/api/flexnet-media-embed.php?url=" + e.data.url;
+                        const url = "../api/flexnet-media-embed.php?url=" + e.data.url;
                         $.getJSON(url, function(data, status) {
                             if(data.success) {
                                 // console.log(data);
                                 tinyMCE.activeEditor.insertContent(
                                     '<p>' + data.result.html + '</p>'
                                 );
+                                $("#preview").html(data.result.html);
                             } else {
                                 alert("Returned error: " + data.error);
                             }

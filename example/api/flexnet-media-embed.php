@@ -101,7 +101,7 @@ if(!$endpoint) {
     sendNoCacheHeaders();
     returnJson([
         "success"   => false,
-        "error"     => "Endpoint kunne ikke findes",
+        "error"     => "Endpoint kunne ikke findes {$endpoint}-{$url}",
         "result"    => null,
     ]);
 }
