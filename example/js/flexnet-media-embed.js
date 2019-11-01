@@ -44,7 +44,6 @@ tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
                         const url = "../api/flexnet-media-embed.php?url=" + e.data.url;
                         $.getJSON(url, function(data, status) {
                             if(data.success) {
-                                // console.log(data);
                                 tinyMCE.activeEditor.insertContent(
                                     '<p>' + data.result.html + '</p>'
                                 );
