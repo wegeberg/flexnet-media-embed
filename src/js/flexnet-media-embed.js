@@ -7,8 +7,11 @@
 
     For full example see: https://www.flexnet.dk/github/flexnet-media-embed/example/
 */
+const plugin_path = "../";
+
 tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
-    var icon_url='../src/images/fl.png';
+    var icon_url = plugin_path + 'src/images/fl.png';
+
 
     editor.on('init', function (args) {
         editor_id = args.target.id;
