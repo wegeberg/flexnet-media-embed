@@ -1,14 +1,19 @@
 /*
     Title: Flexnet Media Embed
-    Version: 1.0, 2019-04-07
-    Author: Martin Wegeberg
+    Version: 1.0.1, 2020-09-15
+    Author: Martin Wegeberg, 2019-
     Description:  A plugin for embedding media content to TinyMCE 4.
     Add Facebook, Twitter, YouTube, Vimeo, Soundcloud, Infogram
 
     For full example see: https://www.flexnet.dk/github/flexnet-media-embed/example/
 */
+
+// Relative path from site-root to this folder
 const plugin_path = "../";
 
+
+
+/* No need to change anything below this line */
 tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
     var icon_url = plugin_path + 'src/images/fl.png';
 
