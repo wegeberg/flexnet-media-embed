@@ -10,9 +10,13 @@
 
 // Relative path from site-root to this folder
 const plugin_path = "../";
+
 // You have to generate an accesstoken using your FB Developer Account
 // See: https://developers.facebook.com/docs/graph-api/reference/oembed-post/
 const fbAccessToken = "";
+
+// If you have already included the required javascript for embedding Facebook posts set this to false
+const omitscript = "false";
 
 /* No need to change anything below this line */
 tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
@@ -74,7 +78,7 @@ function getFacebook(facebookUrl) {
         alert("You have to provide an access token to embed Facebook posts");
         return;
     }
-    const url = `https://graph.facebook.com/v8.0/oembed_post?url=${facebookUrl}&access_token=${fbAccessToken}&omitscript=true`;
+    const url = `https://graph.facebook.com/v8.0/oembed_post?url=${facebookUrl}&access_token=${fbAccessToken}&omitscript=${omitscript}`;
     $.ajax({
         url: url,
         dataType: "jsonp",
