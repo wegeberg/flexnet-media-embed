@@ -12,4 +12,4 @@ See: https://developers.facebook.com/docs/graph-api/reference/oembed-post/
 In /src/js/flexnet-media-embed.js:
 - Set the value of fbAccessToken  to the generated access token.
 - Set plugin_path to the relative path from site root
-– If you have already included the necessary javascript for embedding FB posts set omitscript to "true"
+- If you have already included the necessary javascript for embedding FB posts set omitscript to "true"
