@@ -141,4 +141,3 @@ returnJson([
     "url"       => $endpoint.$url,
     "kode"      => $result ? htmlentities($result["html"]) : null
 ]);
-?>

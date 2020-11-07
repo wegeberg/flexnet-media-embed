@@ -1,6 +1,6 @@
 /*
     Title: Flexnet Media Embed
-    Version: 1.0.1, 2020-09-15
+    Version: 1.0.2, 2020-11-06
     Author: Martin Wegeberg, 2019-
     Description:  A plugin for embedding media content to TinyMCE 4.
     Add Facebook, Twitter, YouTube, Vimeo, Soundcloud, Infogram
@@ -10,8 +10,9 @@
 
 // Relative path from site-root to this folder
 const plugin_path = "../";
-
-
+// You have to generate an accesstoken using your FB Developer Account
+// See: https://developers.facebook.com/docs/graph-api/reference/oembed-post/
+const fbAccessToken = "";
 
 /* No need to change anything below this line */
 tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
@@ -29,10 +30,8 @@ tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
         tooltip: 'Embed Tweet, FB, YouTube, Vimeo, Soundcloud, Infogram',
 
         onclick: function () {
-
             editor.windowManager.open({
                 title: 'Flexnet URL embed',
-
                 body: [
                     {
                         type: 'textbox',
@@ -64,7 +63,6 @@ tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
                             console.log( "getJSON error:", url );
                         });
                     }
-
                 }
             });
         }
@@ -72,8 +70,13 @@ tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
 });
 
 function getFacebook(facebookUrl) {
+    if(!fbAccessToken || fbAccessToken.length === 0) {
+        alert("You have to provide an access token to embed Facebook posts");
+        return;
+    }
+    const url = `https://graph.facebook.com/v8.0/oembed_post?url=${facebookUrl}&access_token=${fbAccessToken}&omitscript=true`;
     $.ajax({
-        url: "https://www.facebook.com/plugins/post/oembed.json/?url="+facebookUrl,
+        url: url,
         dataType: "jsonp",
         async: false,
         success: function(data) {
