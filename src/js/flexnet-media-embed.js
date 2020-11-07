@@ -8,8 +8,8 @@
     For full example see: https://www.flexnet.dk/github/flexnet-media-embed/example/
 */
 
-// Relative path from site-root to this folder
-const plugin_path = "../";
+// Path to the plugin icon
+const icon_url = '/src/flexnet-media-embed/src/images/fl.png';
 
 // You have to generate an accesstoken using your FB Developer Account
 // See: https://developers.facebook.com/docs/graph-api/reference/oembed-post/
@@ -20,9 +20,6 @@ const omitscript = "false";
 
 /* No need to change anything below this line */
 tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
-    var icon_url = plugin_path + 'src/images/fl.png';
-
-
     editor.on('init', function (args) {
         editor_id = args.target.id;
 
@@ -30,7 +27,7 @@ tinymce.PluginManager.add('flexnet-media-embed', function(editor, url) {
     editor.addButton('flexnet-media-embed', {
         text:false,
         icon: true,
-        image:icon_url,
+        image: icon_url,
         tooltip: 'Embed Tweet, FB, YouTube, Vimeo, Soundcloud, Infogram',
 
         onclick: function () {
